@@ -1,18 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-import { PrimerComponente } from './components/PrimerComponente';
-import { SegundoComponante } from './components/SegundoComponante';
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import Inicio from './components/Inicio'
+import Personaje from './components/Personaje'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Esto es un parrafo de React con Harrison</p>
-        <PrimerComponente/>
-        <SegundoComponante/>
-        <PrimerComponente/>
-      </header>
+    <div className="contenedor">
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Inicio></Inicio>}></Route>
+          <Route path='/personaje/:id' element={<Personaje></Personaje>}></Route>
+        </Routes>
+
+      </BrowserRouter>
     </div>
   );
 }
